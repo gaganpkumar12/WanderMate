@@ -1,0 +1,648 @@
+/* ============================================
+   Matches Page Styles — WanderMate Phase 4
+   ============================================ */
+
+.page-matches {
+  padding: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* ─── Header ──────────────────────────────── */
+.matches-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.matches-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.matches-title h1 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.icon-gold {
+  color: var(--color-gold);
+}
+
+.match-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  background: rgba(29, 191, 159, 0.1);
+  color: var(--color-teal);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ─── Empty State ─────────────────────────── */
+.matches-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+}
+
+.empty-illustration {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+}
+
+.empty-hearts {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 2.5rem;
+  animation: float-heart 3s ease-in-out infinite;
+}
+
+.h1 {
+  top: 0;
+  left: 10px;
+  animation-delay: 0s;
+}
+
+.h2 {
+  top: 20px;
+  right: 0;
+  animation-delay: 0.5s;
+}
+
+.h3 {
+  bottom: 0;
+  left: 30px;
+  animation-delay: 1s;
+}
+
+@keyframes float-heart {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.matches-empty h2 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.matches-empty p {
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ─── Layout (Sidebar + Detail) ───────────── */
+.matches-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: var(--spacing-xl);
+  min-height: 60vh;
+}
+
+/* ─── Sidebar ─────────────────────────────── */
+.matches-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+}
+
+.matches-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.matches-sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-card);
+  border-radius: 4px;
+}
+
+/* Shared MatchCard styling */
+.shared-match-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.shared-match-card:hover {
+  border-color: var(--border-card-hover);
+  background: var(--bg-subtle);
+}
+
+.shared-match-card.active {
+  border-color: var(--color-teal);
+  background: rgba(29, 191, 159, 0.04);
+  box-shadow: inset 3px 0 0 var(--color-teal);
+}
+
+.smc-avatars {
+  flex-shrink: 0;
+}
+
+.smc-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border-card);
+}
+
+.smc-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.smc-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-subtle);
+  color: var(--color-teal);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.smc-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.smc-info h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.smc-trip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.smc-trip svg {
+  color: var(--color-teal);
+}
+
+.smc-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.smc-score {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  background: rgba(29, 191, 159, 0.08);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.smc-chat-icon {
+  color: var(--text-tertiary);
+}
+
+/* Last message preview */
+.smc-last-message {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Meta column for time + unread */
+.smc-meta-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.smc-time {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.smc-unread {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--color-teal);
+  color: var(--bg-base);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* ─── Detail Panel ────────────────────────── */
+.matches-detail {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  backdrop-filter: var(--blur-glass);
+  padding: var(--spacing-2xl);
+  min-height: 400px;
+}
+
+.detail-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.icon-muted {
+  color: var(--text-tertiary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.detail-placeholder h3 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.detail-placeholder p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Detail Card */
+.match-detail-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.detail-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.detail-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-teal);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.detail-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-subtle);
+  color: var(--color-teal);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.detail-info h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.detail-bio {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Trip Info */
+.detail-trip h3,
+.detail-interests h3 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.detail-trip-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--spacing-md);
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.dtc-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.dtc-row svg {
+  color: var(--color-teal);
+  flex-shrink: 0;
+}
+
+/* Compatibility */
+.detail-compat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 8px 16px;
+  background: rgba(29, 191, 159, 0.06);
+  border: 1px solid rgba(29, 191, 159, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--color-teal);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Time */
+.detail-time {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+/* Interests */
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.detail-tag {
+  display: inline-flex;
+  padding: 4px 10px;
+  background: rgba(42, 127, 255, 0.06);
+  color: var(--color-accent);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Actions */
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.chat-cta {
+  box-shadow: var(--shadow-md);
+}
+
+.chat-coming-soon {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ─── Loading ─────────────────────────────── */
+.matches-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  color: var(--text-secondary);
+}
+
+/* ─── Responsive ──────────────────────────── */
+@media (max-width: 768px) {
+  .page-matches {
+    padding: var(--spacing-lg);
+  }
+
+  .matches-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .matches-sidebar {
+    max-height: none;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: var(--spacing-sm);
+    padding-right: 0;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .shared-match-card {
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+
+  .matches-detail {
+    min-height: auto;
+  }
+
+  .detail-user {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detail-info h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ─── Matches Tabs ────────────────────────── */
+.matches-tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+.matches-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.matches-tab:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.matches-tab.active {
+  background: rgba(29, 191, 159, 0.1);
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--color-teal);
+  color: #fff;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ─── Likes Tab ───────────────────────────── */
+.likes-tab-content {
+  width: 100%;
+}
+
+.likes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.like-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s;
+}
+
+.like-card:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+}
+
+.like-card.mutual {
+  border-color: rgba(29, 191, 159, 0.3);
+  background: rgba(29, 191, 159, 0.04);
+}
+
+.like-card-avatar img,
+.like-avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.like-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-tertiary);
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.like-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.like-card-info h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mutual-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  background: rgba(29, 191, 159, 0.12);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.like-trip-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.like-card-actions {
+  flex-shrink: 0;
+}

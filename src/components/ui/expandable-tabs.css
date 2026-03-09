@@ -1,0 +1,87 @@
+/* Expandable Tabs — Floating Bottom Nav */
+
+.expandable-tabs-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-fixed);
+  display: flex;
+}
+
+.expandable-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-full);
+  padding: 6px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.expandable-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  padding: 8px 10px;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.expandable-tab:hover {
+  color: var(--text-primary);
+}
+
+.expandable-tab.active {
+  color: var(--text-inverse);
+  background: var(--color-teal);
+  padding: 8px 14px;
+}
+
+.expandable-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.expandable-tab-label {
+  overflow: hidden;
+}
+
+/* Separator dot between tabs */
+.expandable-tab-separator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--border-card);
+  flex-shrink: 0;
+}
+
+/* Notification indicator on tab */
+.expandable-tab-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  border: 2px solid var(--bg-secondary);
+}
