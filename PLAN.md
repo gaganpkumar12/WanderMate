@@ -784,7 +784,9 @@ Same fields as onboarding wizard but in a single long-scroll form, pre-filled wi
     "eslint": "latest"
   }
 }
+
 ```
+Bug Fix
 
 ---
 
